@@ -11,26 +11,29 @@
 <p>javascript</p>
 <p>Copy code</p>
 <pre><code class="language-const">
+const { initDrcode, setUpErrorHandler } = require('drcode-wrapper');
+const express = require('express');
+
 const config = {
-  protocol: &#39;https&#39;,
-  publicKey: &#39;yourPublicKey&#39;,
-  host: &#39;sentry.io&#39;,
-  port: 443,
-  projectId: &#39;yourProjectId&#39;,
-  tracesSampleRate: 1.0,  // optional
-  profilesSampleRate: 1.0  // optional
+protocol: 'https',
+publicKey: 'yourPublicKey',
+host: 'sentry.io',
+port: 443,
+projectId: 'yourProjectId',
+tracesSampleRate: 1.0, // optional
+profilesSampleRate: 1.0 // optional
 };
 
+// Initialize drcode-wrapper
 initDrcode(config);
 
 // Express.js example for setting up error handler
-const express = require(&#39;express&#39;);
 const app = express();
 
 app.use(setUpErrorHandler);
 
-app.listen(3000, () =&gt; {
-console.log(&#39;Server is running on port 3000&#39;);
+app.listen(3000, () => {
+console.log('Server is running on port 3000');
 });
 </code></pre>
 
@@ -64,24 +67,27 @@ console.log(&#39;Server is running on port 3000&#39;);
 <p>typescript</p>
 <p>Copy code</p>
 <pre><code class="language-const"> interface DrCodeConfig {
-protocol: string;
-publicKey: string;
-host: string;
-port: number;
-projectId: string;
-tracesSampleRate?: number;
-profilesSampleRate?: number;
+  protocol: string;
+  publicKey: string;
+  host: string;
+  port: number;
+  projectId: string;
+  tracesSampleRate?: number;
+  profilesSampleRate?: number;
 }
 
 export function initDrcode(config: DrCodeConfig): void;
 
-export function setUpErrorHandler( err: Error,
+export function setUpErrorHandler(
+err: Error,
 req: any,
 res: any,
-next: any ): void;
+next: any
+): void;
+
 </code></pre>
 
 <h4 id="license">License</h4>
 <p>This project is licensed under the MIT License.</p>
 <h4 id="version">Version</h4>
-<p>1.2.0</p>
+<p>1.7.1</p>
