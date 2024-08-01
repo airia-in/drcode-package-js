@@ -90,4 +90,4 @@ next: any
 <h4 id="license">License</h4>
 <p>This project is licensed under the MIT License.</p>
 <h4 id="version">Version</h4>
-<p>1.7.1</p>
+<p>1.8.2</p>
